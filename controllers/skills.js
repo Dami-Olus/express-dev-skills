@@ -4,7 +4,8 @@ module.exports = {
   index,
   show,
   create,
-  deleteOne,
+  delete: deleteOne,
+  new: newSkill,
 };
 
 function index(req, res, next) {
@@ -22,9 +23,10 @@ function deleteOne(req, res,) {
   res.redirect("skills");
 }
 
-function newTodo() {
-  res.render("skills/new");
-}
+function newSkill(req, res){
+  res.render('skills/new') // <- This is not a url 
+  // file path referring to the views folder  
+ }
 
 function show(req, res) {
   console.log(req.params);
