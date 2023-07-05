@@ -20,7 +20,7 @@ function create(req, res) {
 
 function deleteOne(req, res,) {
   skillModel.deleteOne(req.params.id)
-  res.redirect("/");
+  res.redirect("/skills");
 }
 
 function newSkill(req, res){
@@ -34,8 +34,4 @@ function show(req, res) {
   res.render("skills/show", { skill: skill });
 }
 
-function create(req,res){
-  console.log(req.body)
-  const skill = skillModel.create(req.body)
-  res.redirect(`/skills/${skill.id}`)
-}
+
