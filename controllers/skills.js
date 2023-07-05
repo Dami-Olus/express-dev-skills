@@ -33,3 +33,9 @@ function show(req, res) {
   const skill = skillModel.getOne(req.params.id);
   res.render("skills/show", { skill: skill });
 }
+
+function create(req,res){
+  console.log(req.body)
+  const skill = skillModel.create(req.body)
+  res.redirect(`/skills/${skill.id}`)
+}
