@@ -11,5 +11,11 @@
   <div><%=skill.skill%></div>
   <div><%=skill.level%></div>
   <div><%=skill.yearsOfExperience%></div>
+  <div><%=skill.id%></div>
+  <form method="POST" action="/skills/<%= skill.id%>?_method=DELETE">
+    <button type="submit">X</button>
+  </form>
+  <a href="/skills/<%= skill.id %>/edit">Edit Skill</a>
+  
 </body>
 </html>

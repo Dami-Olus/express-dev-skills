@@ -7,7 +7,7 @@ const skills = [
   },
   {
     id: 124,
-    skill: "backend development development",
+    skill: "backend development",
     level: "beginner",
     yearsOfExperience: 2,
   },
@@ -45,6 +45,6 @@ function create(skill) {
 function update() {}
 
 function deleteOne(id) {
-  const idx = todos.findIndex(todo => todo.id === parseInt(id))
-  todos.splice(idx,1)
+  const idx = skills.findIndex(skill => skill.id === parseInt(id))
+  skills.splice(idx,1)
 }
