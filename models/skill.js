@@ -42,7 +42,20 @@ function create(skill) {
   return skill
 }
 
-function update() {}
+function update(id, data) {
+  //get skill to be uopdated
+  const idx = skills.findIndex(skill => skill.id === parseInt(id))
+  //if property exists, update it
+  if(data.skill){
+    skills[idx].skill = data.skill
+  }
+  if(data.level){
+    skills[idx].level = data.level
+  }
+  if(data.yearsOfExperience){
+    skills[idx].yearsOfExperience = data.yearsOfExperience
+  }
+}
 
 function deleteOne(id) {
   const idx = skills.findIndex(skill => skill.id === parseInt(id))

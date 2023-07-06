@@ -7,6 +7,7 @@ module.exports = {
   delete: deleteOne,
   new: newSkill,
   edit,
+  update,
 };
 
 function index(req, res, next) {
@@ -14,30 +15,35 @@ function index(req, res, next) {
 }
 
 function create(req, res) {
-  console.log(req.body)
-  const skill = skillModel.create(req.body)
-  console.log(skill)
-  res.redirect('/skills/')
+  console.log(req.body);
+  const skill = skillModel.create(req.body);
+  console.log(skill);
+  res.redirect("/skills/");
 }
 
-function edit(req, res){
-  res.render('skills/edit')
+function edit(req, res) {
+  const skill = skillModel.getOne(req.params.id);
+  res.render("skills/edit", { skill });
 }
 
-function deleteOne(req, res,) {
-  skillModel.deleteOne(req.params.id)
+function update(req, res) {
+  const skill = skillModel.getOne(req.params.id);
+  skillModel.update(req.params.id, req.body)
+  res.redirect('/skills')
+}
+
+function deleteOne(req, res) {
+  skillModel.deleteOne(req.params.id);
   res.redirect("/skills");
 }
 
-function newSkill(req, res){
-  res.render('skills/new') // <- This is not a url 
-  // file path referring to the views folder  
- }
+function newSkill(req, res) {
+  res.render("skills/new"); // <- This is not a url
+  // file path referring to the views folder
+}
 
 function show(req, res) {
   console.log(req.params);
   const skill = skillModel.getOne(req.params.id);
   res.render("skills/show", { skill: skill });
 }
-
-
