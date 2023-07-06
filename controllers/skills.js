@@ -29,7 +29,7 @@ function edit(req, res) {
 function update(req, res) {
   const skill = skillModel.getOne(req.params.id);
   skillModel.update(req.params.id, req.body)
-  res.redirect('/skills')
+  res.redirect(`/skills/${req.params.id}`)
 }
 
 function deleteOne(req, res) {
