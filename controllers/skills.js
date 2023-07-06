@@ -6,6 +6,7 @@ module.exports = {
   create,
   delete: deleteOne,
   new: newSkill,
+  edit,
 };
 
 function index(req, res, next) {
@@ -15,8 +16,11 @@ function index(req, res, next) {
 function create(req, res) {
   console.log(req.body)
   const skill = skillModel.create(req.body)
-  res.redirect(`/skills/${skill.id}`)
+  console.log(skill)
+  res.redirect('/skills/')
 }
+
+function edit(){}
 
 function deleteOne(req, res,) {
   skillModel.deleteOne(req.params.id)
