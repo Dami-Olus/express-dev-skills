@@ -20,7 +20,9 @@ function create(req, res) {
   res.redirect('/skills/')
 }
 
-function edit(){}
+function edit(req, res){
+  res.render('skills/edit')
+}
 
 function deleteOne(req, res,) {
   skillModel.deleteOne(req.params.id)
